@@ -4,6 +4,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:xlo/blocks/login/field_state.dart';
 import 'package:xlo/blocks/login/login_bloc.dart';
+import 'package:xlo/screens/login/widgets/or_divider.dart';
+import 'package:xlo/screens/signup/signup_screen.dart';
+
+import 'widgets/facebook_button.dart';
+import 'widgets/login_button.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -27,6 +32,8 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
+              FacebookButton(loginBloc: _loginBloc),
+              OrDivider(),
               Padding (
                 padding: const EdgeInsets.only(top: 20, bottom: 11),
                 child: Text (
@@ -97,6 +104,38 @@ class _LoginScreenState extends State<LoginScreen> {
                   );
                 },
               ),
+              LoginButton(loginBloc: _loginBloc,),
+              Divider (
+                color: Colors.grey,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    const Text (
+                      'Não tem uma conta? ',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => SignupScreen()
+                        ));
+                      },
+                      child: Text(
+                        'Cadastre-se',
+                        style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          color: Colors.blue,
+                          fontSize: 16
+                        ),
+                      ),
+                    ),
+
+                  ],
+                ),
+              )
             ],
           ),
         ),
