@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/Matheus/AndroidStudioProjects/xlo/lib/screens/base/base_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:xlo/blocks/drawer_bloc.dart';
 import 'package:xlo/blocks/home_bloc.dart';
+import 'package:xlo/screens/base/base_screen.dart';
 
 void main() => runApp(MyApp());
 
